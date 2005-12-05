@@ -12,7 +12,6 @@ BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	fontconfig
 BuildRequires:	pkgconfig >= 1:0.19
-BuildRequires:	sed >= 4.0
 BuildRequires:	t1utils
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
@@ -53,8 +52,8 @@ for f in *.pfa ; do
 	t1binary $f `basename $f .pfa`.pfb
 	rm -f $f
 done
-sed -i -e 's/\.pfa /.pfb /' fonts.scale
-mv -f fonts.scale fonts.scale.bh
+sed -e '1d;s/\.pfa /.pfb /' fonts.scale > fonts.scale.bh
+rm -f fonts.scale fonts.dir fonts.cache-1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
