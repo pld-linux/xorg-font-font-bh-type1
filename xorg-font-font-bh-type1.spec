@@ -1,17 +1,16 @@
 Summary:	bh-type1 font
 Summary(pl):	Font bh-type1
 Name:		xorg-font-font-bh-type1
-Version:	0.99.1
+Version:	1.0.0
 Release:	0.1
 License:	MIT
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/font/font-bh-type1-%{version}.tar.bz2
-# Source0-md5:	867ff907066a1e57031e7c11034f95e3
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/font/font-bh-type1-%{version}.tar.bz2
+# Source0-md5:	46588b22678e440741d6220bc3945cbf
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	fontconfig
-BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	t1utils
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
