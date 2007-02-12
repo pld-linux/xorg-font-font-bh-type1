@@ -1,5 +1,5 @@
 Summary:	bh-type1 font
-Summary(pl):	Font bh-type1
+Summary(pl.UTF-8):   Font bh-type1
 Name:		xorg-font-font-bh-type1
 Version:	1.0.0
 Release:	0.1
@@ -22,7 +22,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 bh-type1 font.
 
-%description -l pl
+%description -l pl.UTF-8
 Font bh-type1.
 
 %prep
