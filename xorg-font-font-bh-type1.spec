@@ -54,6 +54,21 @@ done
 sed -e '1d;s/\.pfa /.pfb /' fonts.scale > fonts.scale.bh
 rm -f fonts.scale fonts.dir fonts.cache-1
 
+cat > Fontmap.bh <<EOF
+/LuxiMono                                (l047013t.pfb) ;
+/LuxiMono-Bold                           (l047016t.pfb) ;
+/LuxiMono-Oblique                        (l047033t.pfb) ;
+/LuxiMono-BoldOblique                    (l047036t.pfb) ;
+/LuxiSans                                (l048013t.pfb) ;
+/LuxiSans-Bold                           (l048016t.pfb) ;
+/LuxiSans-Oblique                        (l048033t.pfb) ;
+/LuxiSans-BoldOblique                    (l048036t.pfb) ;
+/LuxiSerif                               (l049013t.pfb) ;
+/LuxiSerif-Bold                          (l049016t.pfb) ;
+/LuxiSerif-Oblique                       (l049033t.pfb) ;
+/LuxiSerif-BoldOblique                   (l049036t.pfb) ;
+EOF
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -69,3 +84,4 @@ fontpostinst Type1
 %{_fontsdir}/Type1/*.pfb
 %{_fontsdir}/Type1/afm/*.afm
 %{_fontsdir}/Type1/fonts.scale.bh
+%{_fontsdir}/Type1/Fontmap.bh
