@@ -1,12 +1,12 @@
 Summary:	Bigelow & Holmes Luxi fonts in Type1 format
 Summary(pl.UTF-8):	Fonty Bigelow & Holmes Luxi w formacie Type1
 Name:		xorg-font-font-bh-type1
-Version:	1.0.2
+Version:	1.0.3
 Release:	1
 License:	distributable if unmodified
 Group:		Fonts
 Source0:	http://xorg.freedesktop.org/releases/individual/font/font-bh-type1-%{version}.tar.bz2
-# Source0-md5:	da9932f1c325095b48d73f954bdbce62
+# Source0-md5:	53ed9a42388b7ebb689bdfc374f96a22
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -14,7 +14,7 @@ BuildRequires:	fontconfig
 BuildRequires:	t1utils
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
-BuildRequires:	xorg-font-font-util >= 1.1
+BuildRequires:	xorg-font-font-util >= 1.2
 BuildRequires:	xorg-util-util-macros >= 1.3
 Requires(post,postun):	fontpostinst
 Requires:	%{_fontsdir}/Type1
