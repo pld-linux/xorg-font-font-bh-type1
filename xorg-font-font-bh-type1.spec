@@ -2,7 +2,7 @@ Summary:	Bigelow & Holmes Luxi fonts in Type1 format
 Summary(pl.UTF-8):	Fonty Bigelow & Holmes Luxi w formacie Type1
 Name:		xorg-font-font-bh-type1
 Version:	1.0.3
-Release:	1
+Release:	2
 License:	distributable if unmodified
 Group:		Fonts
 Source0:	http://xorg.freedesktop.org/releases/individual/font/font-bh-type1-%{version}.tar.bz2
