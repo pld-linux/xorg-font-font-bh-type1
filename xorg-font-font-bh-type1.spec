@@ -1,21 +1,23 @@
 Summary:	Bigelow & Holmes Luxi fonts in Type1 format
 Summary(pl.UTF-8):	Fonty Bigelow & Holmes Luxi w formacie Type1
 Name:		xorg-font-font-bh-type1
-Version:	1.0.3
-Release:	2
+Version:	1.0.4
+Release:	1
 License:	distributable if unmodified
 Group:		Fonts
-Source0:	http://xorg.freedesktop.org/releases/individual/font/font-bh-type1-%{version}.tar.bz2
-# Source0-md5:	53ed9a42388b7ebb689bdfc374f96a22
-URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf >= 2.57
+Source0:	https://xorg.freedesktop.org/releases/individual/font/font-bh-type1-%{version}.tar.xz
+# Source0-md5:	51a17c981275439b85e15430a3d711ee
+URL:		https://xorg.freedesktop.org/
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	fontconfig
 BuildRequires:	t1utils
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-app-mkfontdir
 BuildRequires:	xorg-app-mkfontscale
 BuildRequires:	xorg-font-font-util >= 1.2
-BuildRequires:	xorg-util-util-macros >= 1.3
+BuildRequires:	xorg-util-util-macros >= 1.20
+BuildRequires:	xz
 Requires(post,postun):	fontpostinst
 Requires:	%{_fontsdir}/Type1
 BuildArch:	noarch
@@ -35,8 +37,10 @@ Fonty Bigelow & Holmes Luxi w formacie Type1.
 %{__autoconf}
 %{__automake}
 %configure \
+%if "%{_gnu}" != "-gnux32"
 	--build=%{_host} \
 	--host=%{_host} \
+%endif
 	--with-fontdir=%{_fontsdir}/Type1
 
 %{__make}
@@ -50,13 +54,13 @@ rm -rf $RPM_BUILD_ROOT
 # separate *.afm, convert *.pfa to .pfb
 cd $RPM_BUILD_ROOT%{_fontsdir}/Type1
 install -d afm
-mv -f *.afm afm
+%{__mv} *.afm afm
 for f in *.pfa ; do
 	t1binary $f `basename $f .pfa`.pfb
 	rm -f $f
 done
 sed -e '1d;s/\.pfa /.pfb /' fonts.scale > fonts.scale.bh
-rm -f fonts.scale fonts.dir fonts.cache-1
+%{__rm} fonts.scale fonts.dir
 
 cat > Fontmap.bh <<EOF
 /LuxiMono                                (l047013t.pfb) ;
@@ -84,7 +88,7 @@ fontpostinst Type1
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog README
+%doc COPYING ChangeLog README.md
 %{_fontsdir}/Type1/l04*.pfb
 %{_fontsdir}/Type1/afm/l04*.afm
 %{_fontsdir}/Type1/fonts.scale.bh
